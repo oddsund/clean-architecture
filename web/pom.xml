@@ -12,16 +12,28 @@
     <artifactId>web</artifactId>
 
     <dependencies>
+        <!-- This module knows about every other module and configures it all together -->
         <dependency>
             <groupId>no.bekk</groupId>
             <artifactId>usecase</artifactId>
             <version>${project.version}</version>
         </dependency>
 
-        <!-- Need this to create InMemoryRepo. How should this be wired together? Spring and autowired in controller..?-->
+        <dependency>
+            <groupId>no.bekk</groupId>
+            <artifactId>domain</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>no.bekk</groupId>
             <artifactId>database</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>no.bekk</groupId>
+            <artifactId>integration</artifactId>
             <version>${project.version}</version>
         </dependency>
 

@@ -19,7 +19,6 @@ class CreateCustomerUseCase(private val customerRepository: CustomerRepository) 
             country = country
         )
 
-        // Save customer aggregate using CustomerRepository
         customerRepository.save(customer)
         return customer
     }

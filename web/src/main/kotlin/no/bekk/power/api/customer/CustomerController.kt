@@ -14,11 +14,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/api")
-class CustomerController {
-
-    private val createCustomerUseCase = CreateCustomerUseCase(
-        InMemoryCustomerRepository()
-    )
+class CustomerController(private val createCustomerUseCase: CreateCustomerUseCase) {
 
     @PostMapping("/customer")
     fun createCustomer(@RequestBody createCustomerRequest: CreateCustomerRequest): ResponseEntity<Any> {
