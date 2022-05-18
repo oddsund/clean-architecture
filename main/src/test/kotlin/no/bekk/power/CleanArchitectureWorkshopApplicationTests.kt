@@ -1,4 +1,4 @@
-package no.bekk.clean
+package no.bekk.power
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest

@@ -26,6 +26,7 @@
         <module>main</module>
         <module>usecase</module>
         <module>infra/controller</module>
+        <module>infra/database</module>
     </modules>
 
     <dependencies>
