@@ -6,8 +6,8 @@ import org.springframework.context.annotation.Configuration
 import org.springframework.web.filter.CommonsRequestLoggingFilter
 
 
-@Configuration
-@ComponentScan("no.bekk.power.api.customer")
+//@Configuration
+//@ComponentScan("no.bekk.power.api.customer")
 class ApiConfig {
 
     @Bean

@@ -1,9 +1,8 @@
 package no.bekk.power.customer
 
-import no.bekk.power.entity.CustomerEntity
 import no.bekk.power.valuetypes.Country
 import no.bekk.power.valuetypes.CustomerName
-import no.bekk.power.valuetypes.LegalId
+import no.bekk.power.valuetypes.CustomerId
 
 class CustomerFactory {
 
@@ -13,10 +12,9 @@ class CustomerFactory {
             return Customer(
                 customerEntity = CustomerEntity(
                     name = CustomerName(name),
-                    legalId = LegalId(legalId),
+                    customerId = CustomerId(legalId),
                     country = Country(country)
-                ),
-                mutableListOf()
+                )
             )
         }
     }

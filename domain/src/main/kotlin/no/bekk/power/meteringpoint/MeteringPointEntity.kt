@@ -1,4 +1,4 @@
-package no.bekk.power.entity
+package no.bekk.power.meteringpoint
 
 import no.bekk.power.valuetypes.Address
 import no.bekk.power.valuetypes.MeteringPointID

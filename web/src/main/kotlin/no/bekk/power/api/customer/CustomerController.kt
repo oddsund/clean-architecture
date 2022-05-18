@@ -22,8 +22,6 @@ class CustomerController {
 
     @PostMapping("/customer")
     fun createCustomer(@RequestBody createCustomerRequest: CreateCustomerRequest): ResponseEntity<Any> {
-        // TODO Should we know about the domain types here? If not there will be a lot of mapping...
-
         val customer: Customer = createCustomerUseCase.create(
             name = createCustomerRequest.name,
             legalId = createCustomerRequest.legalId,

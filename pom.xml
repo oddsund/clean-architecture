@@ -23,10 +23,10 @@
 
     <modules>
         <module>domain</module>
-        <module>main</module>
         <module>usecase</module>
-        <module>infra/controller</module>
+        <module>web</module>
         <module>infra/database</module>
+        <module>infra/integration</module>
     </modules>
 
     <dependencies>

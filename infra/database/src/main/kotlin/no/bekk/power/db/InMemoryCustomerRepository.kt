@@ -2,13 +2,13 @@ package no.bekk.power.db
 
 import no.bekk.power.customer.Customer
 import no.bekk.power.customer.CustomerRepository
-import no.bekk.power.valuetypes.LegalId
+import no.bekk.power.valuetypes.CustomerId
 
 class InMemoryCustomerRepository : CustomerRepository {
-    private val customers: MutableMap<LegalId, Customer> = mutableMapOf()
 
+    private val customers: MutableMap<CustomerId, Customer> = mutableMapOf()
 
-    override fun findByLegalId(id: LegalId): Customer? {
+    override fun findByLegalId(id: CustomerId): Customer? {
         return customers[id]
     }
 

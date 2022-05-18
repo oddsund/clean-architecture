@@ -1,12 +1,11 @@
 package no.bekk.power.customer
 
-import no.bekk.power.entity.CustomerEntity
-import no.bekk.power.entity.MeteringPointEntity
-import no.bekk.power.valuetypes.LegalId
+import no.bekk.power.meteringpoint.MeteringPointEntity
+import no.bekk.power.valuetypes.CustomerId
 
 class Customer internal constructor(
     private val customerEntity: CustomerEntity,
-    private val meteringPoints: MutableList<MeteringPointEntity>) {
+    private val meteringPoints: MutableList<MeteringPointEntity> = mutableListOf()) {
 
     fun addMeteringPoint(meteringPointEntity: MeteringPointEntity) {
         meteringPoints.add(meteringPointEntity)
@@ -16,7 +15,7 @@ class Customer internal constructor(
         meteringPoints.remove(meteringPointEntity)
     }
 
-    fun getId(): LegalId {
-        return customerEntity.legalId
+    fun getId(): CustomerId {
+        return customerEntity.customerId
     }
 }

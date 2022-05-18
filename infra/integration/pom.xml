@@ -10,26 +10,15 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>controller</artifactId>
+    <artifactId>integration</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>no.bekk</groupId>
-            <artifactId>usecase</artifactId>
+            <artifactId>domain</artifactId>
             <version>${project.version}</version>
         </dependency>
 
-        <!-- Need this to create InMemoryRepo. How should this be wired together? Spring and autowired in controller..?-->
-        <dependency>
-            <groupId>no.bekk</groupId>
-            <artifactId>database</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
     </dependencies>
 
 </project>

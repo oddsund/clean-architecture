@@ -3,13 +3,13 @@ package no.bekk.power.usecase.customer
 import no.bekk.power.customer.Customer
 import no.bekk.power.customer.CustomerFactory
 import no.bekk.power.customer.CustomerRepository
-import no.bekk.power.valuetypes.LegalId
+import no.bekk.power.valuetypes.CustomerId
 import java.lang.IllegalArgumentException
 
 class CreateCustomerUseCase(private val customerRepository: CustomerRepository) {
 
     fun create(name: String, legalId: String, country: String): Customer {
-        if (customerRepository.findByLegalId(LegalId(legalId)) != null) {
+        if (customerRepository.findByLegalId(CustomerId(legalId)) != null) {
             throw IllegalArgumentException("Customer with id $legalId already exists")
         }
 
