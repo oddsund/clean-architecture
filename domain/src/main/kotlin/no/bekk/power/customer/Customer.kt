@@ -2,6 +2,7 @@ package no.bekk.power.customer
 
 import no.bekk.power.entity.CustomerEntity
 import no.bekk.power.entity.MeteringPointEntity
+import no.bekk.power.valuetypes.LegalId
 
 class Customer internal constructor(
     private val customerEntity: CustomerEntity,
@@ -15,7 +16,7 @@ class Customer internal constructor(
         meteringPoints.remove(meteringPointEntity)
     }
 
-    fun getId(): String {
-        return customerEntity.ssn
+    fun getId(): LegalId {
+        return customerEntity.legalId
     }
 }

@@ -1,11 +1,13 @@
 package no.bekk.power.customer
 
+import no.bekk.power.valuetypes.LegalId
+
 interface CustomerRepository {
 
-    fun findByLegalId(id: String): Customer?
+    fun findByLegalId(id: LegalId): Customer?
 
-    fun save(customer: Customer): String
+    fun save(customer: Customer)
 
-    fun update(customer: Customer): String
+    fun update(customer: Customer)
 
 }

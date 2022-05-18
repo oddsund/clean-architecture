@@ -18,13 +18,13 @@
             <artifactId>usecase</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <!-- How should this be wired together? Spring and autorwired in controller..?-->
+
+        <!-- Need this to create InMemoryRepo. How should this be wired together? Spring and autowired in controller..?-->
         <dependency>
             <groupId>no.bekk</groupId>
             <artifactId>database</artifactId>
             <version>${project.version}</version>
         </dependency>
-
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
