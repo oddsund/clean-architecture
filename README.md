@@ -7,6 +7,10 @@ Repo for clean architecture workshop implemented in Kotlin
 - JDK 17
 - Editor (IntelliJ or other editor of choice)
 
+## Compile
+
+`mvn clean package`
+
 ## Running the application
 
 ### IntelliJ

@@ -1,6 +1,6 @@
-package no.bekk.power.api.customer
+package no.bekk.power.controller.customer
 
-import no.bekk.power.api.customer.dto.CreateCustomerRequest
+import no.bekk.power.controller.customer.dto.CreateCustomerRequest
 import no.bekk.power.customer.Customer
 import no.bekk.power.usecase.customer.CreateCustomerUseCase
 import org.slf4j.Logger

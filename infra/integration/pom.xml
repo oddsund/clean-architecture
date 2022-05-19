@@ -15,9 +15,11 @@
     <dependencies>
         <dependency>
             <groupId>no.bekk</groupId>
-            <artifactId>domain</artifactId>
+            <artifactId>usecase</artifactId>
             <version>${project.version}</version>
         </dependency>
+
+
 
     </dependencies>
 
