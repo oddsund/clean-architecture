@@ -15,7 +15,6 @@ class Customer internal constructor(
         meteringPoints.remove(meteringPointEntity)
     }
 
-    fun getId(): CustomerId {
-        return customerEntity.customerId
-    }
+    val id: CustomerId
+        get() = customerEntity.customerId
 }

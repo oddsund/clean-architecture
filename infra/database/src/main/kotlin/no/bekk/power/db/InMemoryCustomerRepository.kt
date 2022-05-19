@@ -13,7 +13,7 @@ class InMemoryCustomerRepository : CustomerRepository {
     }
 
     override fun save(customer: Customer) {
-        customers[customer.getId()] = customer
+        customers[customer.id] = customer
     }
 
     override fun update(customer: Customer) {
