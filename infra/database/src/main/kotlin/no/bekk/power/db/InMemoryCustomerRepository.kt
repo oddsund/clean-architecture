@@ -8,7 +8,7 @@ class InMemoryCustomerRepository : CustomerRepository {
 
     private val customers: MutableMap<CustomerId, Customer> = mutableMapOf()
 
-    override fun findByLegalId(id: CustomerId): Customer? {
+    override fun findByCustomerId(id: CustomerId): Customer? {
         return customers[id]
     }
 

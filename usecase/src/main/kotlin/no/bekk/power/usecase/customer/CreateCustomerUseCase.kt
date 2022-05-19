@@ -8,14 +8,14 @@ import java.lang.IllegalArgumentException
 
 class CreateCustomerUseCase(private val customerRepository: CustomerRepository) {
 
-    fun create(name: String, legalId: String, country: String): Customer {
-        if (customerRepository.findByLegalId(CustomerId(legalId)) != null) {
-            throw IllegalArgumentException("Customer with id $legalId already exists")
+    fun create(name: String, customerId: String, country: String): Customer {
+        if (customerRepository.findByCustomerId(CustomerId(customerId)) != null) {
+            throw IllegalArgumentException("Customer with id $customerId already exists")
         }
 
         val customer = CustomerFactory.create(
             name = name,
-            legalId = legalId,
+            customerId = customerId,
             country = country
         )
 

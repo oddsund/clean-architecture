@@ -8,11 +8,11 @@ class CustomerFactory {
 
     companion object {
 
-        fun create(name: String, legalId: String, country: String): Customer {
+        fun create(name: String, customerId: String, country: String): Customer {
             return Customer(
                 customerEntity = CustomerEntity(
                     name = CustomerName(name),
-                    customerId = CustomerId(legalId),
+                    customerId = CustomerId(customerId),
                     country = Country(country)
                 )
             )

@@ -4,7 +4,7 @@ import no.bekk.power.valuetypes.CustomerId
 
 interface CustomerRepository {
 
-    fun findByLegalId(id: CustomerId): Customer?
+    fun findByCustomerId(id: CustomerId): Customer?
 
     fun save(customer: Customer)
 
