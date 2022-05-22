@@ -17,6 +17,6 @@ class InMemoryCustomerRepository : CustomerRepository {
     }
 
     override fun update(customer: Customer) {
-        TODO("Not yet implemented")
+        customers[customer.id] = customer
     }
 }

@@ -7,7 +7,6 @@ import no.bekk.power.valuetypes.CustomerId
 class CustomerFactory {
 
     companion object {
-
         fun create(name: String, customerId: String, country: String): Customer {
             return Customer(
                 customerEntity = CustomerEntity(

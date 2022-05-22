@@ -1,7 +1,7 @@
 package no.bekk.power.usecase.consumption
 
 import no.bekk.power.consumption.Consumption
-import no.bekk.power.consumption.ConsumptionTimeSeriesEntity
+import no.bekk.power.consumption.ConsumptionPeriodEntity
 import no.bekk.power.customer.CustomerRepository
 import no.bekk.power.usecase.consumption.service.MeterValuesService
 import no.bekk.power.valuetypes.CustomerId
@@ -21,10 +21,10 @@ class GetConsumptionForPeriodUseCase(
         val meteringPoint = customer.findMeteringPoint(MeteringPointId(meteringPointId))
             ?: throw IllegalArgumentException("Metering point with id $meteringPointId not found")
 
-        val meterValues = meterValuesService.getMeterValues(meteringPoint.meteringPointId, Period(from, to))
+        val meterValues = meterValuesService.getMeterValues(meteringPoint.id, Period(from, to))
 
         val consumption = Consumption(meterValues.meteringPointId, meterValues.period, meterValues.timeSeries.map {
-            ConsumptionTimeSeriesEntity(
+            ConsumptionPeriodEntity(
                 period = it.period,
                 value = it.value,
                 uom = UnitOfMeasurement.valueOf(it.uom)

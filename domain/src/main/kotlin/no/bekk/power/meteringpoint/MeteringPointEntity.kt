@@ -6,8 +6,13 @@ import no.bekk.power.valuetypes.MeteringPointName
 import no.bekk.power.valuetypes.PowerZone
 
 class MeteringPointEntity(
-    val meteringPointId: MeteringPointId,
-    val meteringPointName: MeteringPointName,
-    val address: Address,
-    val powerZone: PowerZone) {
+    internal val meteringPointId: MeteringPointId,
+    internal val meteringPointName: MeteringPointName,
+    internal val address: Address,
+    internal val powerZone: PowerZone
+) {
+
+    val id: MeteringPointId
+        get() = meteringPointId
+
 }
