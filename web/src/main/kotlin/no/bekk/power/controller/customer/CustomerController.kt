@@ -1,14 +1,13 @@
 package no.bekk.power.controller.customer
 
 import no.bekk.power.controller.customer.dto.CreateCustomerRequest
-import no.bekk.power.domain.customer.Customer
 import no.bekk.power.usecase.customer.CreateCustomerUseCase
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
-
+import java.net.URI
 
 @RestController
 class CustomerController(private val createCustomerUseCase: CreateCustomerUseCase) {
@@ -22,14 +21,18 @@ class CustomerController(private val createCustomerUseCase: CreateCustomerUseCas
 
     @PostMapping("/customer")
     fun createCustomer(@RequestBody createCustomerRequest: CreateCustomerRequest): ResponseEntity<Any> {
-        val customer: Customer = createCustomerUseCase.create(
+        val (success, customerId, message) = createCustomerUseCase.create(
             name = createCustomerRequest.name,
             customerId = createCustomerRequest.customerId,
             country = createCustomerRequest.country
         )
 
-        log.info("Customer with id ${customer.id} created")
+        if (success) {
+            log.info("Customer with id $customerId created")
+            return ResponseEntity.created(URI.create("/customer/${customerId.value}")).build()
+        }
 
-        return ResponseEntity.status(HttpStatus.CREATED).build()
+        log.error(message)
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(message)
     }
 }
