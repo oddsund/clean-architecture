@@ -1,9 +1,9 @@
 package no.bekk.power.usecase.customer
 
-import no.bekk.power.customer.Customer
-import no.bekk.power.customer.CustomerFactory
-import no.bekk.power.customer.CustomerRepository
-import no.bekk.power.valuetypes.CustomerId
+import no.bekk.power.domain.customer.Customer
+import no.bekk.power.domain.customer.CustomerFactory
+import no.bekk.power.domain.customer.CustomerRepository
+import no.bekk.power.domain.valuetypes.CustomerId
 import java.lang.IllegalArgumentException
 
 class CreateCustomerUseCase(private val customerRepository: CustomerRepository) {

@@ -1,7 +1,7 @@
-package no.bekk.power.customer
+package no.bekk.power.domain.customer
 
-import no.bekk.power.meteringpoint.MeteringPointEntity
-import no.bekk.power.valuetypes.*
+import no.bekk.power.domain.meteringpoint.MeteringPointEntity
+import no.bekk.power.domain.valuetypes.*
 
 class Customer internal constructor(
     private val customerEntity: CustomerEntity,

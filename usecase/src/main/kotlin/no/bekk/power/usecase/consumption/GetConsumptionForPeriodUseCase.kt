@@ -1,13 +1,13 @@
 package no.bekk.power.usecase.consumption
 
-import no.bekk.power.consumption.Consumption
-import no.bekk.power.consumption.ConsumptionPeriodEntity
-import no.bekk.power.customer.CustomerRepository
+import no.bekk.power.domain.consumption.Consumption
+import no.bekk.power.domain.consumption.ConsumptionPeriodEntity
+import no.bekk.power.domain.customer.CustomerRepository
 import no.bekk.power.usecase.consumption.service.MeterValuesService
-import no.bekk.power.valuetypes.CustomerId
-import no.bekk.power.valuetypes.MeteringPointId
-import no.bekk.power.valuetypes.Period
-import no.bekk.power.valuetypes.UnitOfMeasurement
+import no.bekk.power.domain.valuetypes.CustomerId
+import no.bekk.power.domain.valuetypes.MeteringPointId
+import no.bekk.power.domain.valuetypes.Period
+import no.bekk.power.domain.valuetypes.UnitOfMeasurement
 import java.time.ZonedDateTime
 
 class GetConsumptionForPeriodUseCase(

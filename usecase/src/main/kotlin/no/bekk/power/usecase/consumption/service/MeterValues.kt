@@ -1,8 +1,8 @@
 
 package no.bekk.power.usecase.consumption.service
 
-import no.bekk.power.valuetypes.MeteringPointId
-import no.bekk.power.valuetypes.Period
+import no.bekk.power.domain.valuetypes.MeteringPointId
+import no.bekk.power.domain.valuetypes.Period
 
 data class MeterValues(
     val meteringPointId: MeteringPointId,

@@ -1,6 +1,6 @@
-package no.bekk.power.customer
+package no.bekk.power.domain.customer
 
-import no.bekk.power.valuetypes.CustomerId
+import no.bekk.power.domain.valuetypes.CustomerId
 
 interface CustomerRepository {
 

@@ -1,4 +1,4 @@
-package no.bekk.power.valuetypes
+package no.bekk.power.domain.valuetypes
 
 enum class PowerZone(name: String) {
     NO1("East"),

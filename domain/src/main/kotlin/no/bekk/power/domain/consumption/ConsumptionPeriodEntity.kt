@@ -1,7 +1,7 @@
-package no.bekk.power.consumption
+package no.bekk.power.domain.consumption
 
-import no.bekk.power.valuetypes.Period
-import no.bekk.power.valuetypes.UnitOfMeasurement
+import no.bekk.power.domain.valuetypes.Period
+import no.bekk.power.domain.valuetypes.UnitOfMeasurement
 
 class ConsumptionPeriodEntity constructor(
     internal val period: Period,

@@ -1,7 +1,7 @@
 package no.bekk.power.config
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import no.bekk.power.customer.CustomerRepository
+import no.bekk.power.domain.customer.CustomerRepository
 import no.bekk.power.db.InMemoryCustomerRepository
 import no.bekk.power.integration.InMemoryMeterValuesService
 import no.bekk.power.usecase.consumption.GetConsumptionForPeriodUseCase

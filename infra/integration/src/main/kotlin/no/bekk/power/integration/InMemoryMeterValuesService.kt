@@ -4,8 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import no.bekk.power.usecase.consumption.service.MeterValues
 import no.bekk.power.usecase.consumption.service.MeterValuesService
-import no.bekk.power.valuetypes.MeteringPointId
-import no.bekk.power.valuetypes.Period
+import no.bekk.power.domain.valuetypes.MeteringPointId
+import no.bekk.power.domain.valuetypes.Period
 import java.time.ZonedDateTime
 
 class InMemoryMeterValuesService(objectMapper: ObjectMapper) : MeterValuesService {

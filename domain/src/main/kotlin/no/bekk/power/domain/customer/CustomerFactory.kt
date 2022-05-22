@@ -1,8 +1,8 @@
-package no.bekk.power.customer
+package no.bekk.power.domain.customer
 
-import no.bekk.power.valuetypes.Country
-import no.bekk.power.valuetypes.CustomerName
-import no.bekk.power.valuetypes.CustomerId
+import no.bekk.power.domain.valuetypes.Country
+import no.bekk.power.domain.valuetypes.CustomerName
+import no.bekk.power.domain.valuetypes.CustomerId
 
 class CustomerFactory {
 

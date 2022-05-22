@@ -1,8 +1,8 @@
 package no.bekk.power.db
 
-import no.bekk.power.customer.Customer
-import no.bekk.power.customer.CustomerRepository
-import no.bekk.power.valuetypes.CustomerId
+import no.bekk.power.domain.customer.Customer
+import no.bekk.power.domain.customer.CustomerRepository
+import no.bekk.power.domain.valuetypes.CustomerId
 
 class InMemoryCustomerRepository : CustomerRepository {
 
