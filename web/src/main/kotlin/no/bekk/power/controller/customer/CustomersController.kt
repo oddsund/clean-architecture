@@ -10,16 +10,16 @@ import org.springframework.web.bind.annotation.*
 import java.net.URI
 
 @RestController
-class CustomerController(private val createCustomerUseCase: CreateCustomerUseCase) {
+class CustomersController(private val createCustomerUseCase: CreateCustomerUseCase) {
 
     private val log: Logger = LoggerFactory.getLogger(this.javaClass.name)
 
-    @GetMapping("/customer/{id}")
+    @GetMapping("/customers/{id}")
     fun getCustomer(@PathVariable("id") customerId: String): ResponseEntity<Any> {
         return ResponseEntity.ok(customerId)
     }
 
-    @PostMapping("/customer")
+    @PostMapping("/customers")
     fun createCustomer(@RequestBody createCustomerRequest: CreateCustomerRequest): ResponseEntity<Any> {
         val (success, customerId, message) = createCustomerUseCase.create(
             name = createCustomerRequest.name,

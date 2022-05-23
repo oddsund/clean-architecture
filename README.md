@@ -26,4 +26,4 @@ Repo for clean architecture workshop implemented in Kotlin
 ~\clean-architecture\web> mvn spring-boot:run
 ```
 
-The application should be available on `http://localhost:8080`
+The application should be available on `http://localhost:5233`
