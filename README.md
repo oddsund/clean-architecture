@@ -45,3 +45,7 @@ To compile run: `mvn clean package`
 ```
 
 The application should be available on `http://localhost:5233`
+
+# Postman collection
+
+The `clean-architecture-postman-collection.json` is a postman collection with resources to represent the different use cases in the workshop.
