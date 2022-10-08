@@ -15,7 +15,7 @@
         <!-- This module knows about every other module and configures it all together -->
         <dependency>
             <groupId>no.bekk</groupId>
-            <artifactId>usecase</artifactId>
+            <artifactId>application</artifactId>
             <version>${project.version}</version>
         </dependency>
 

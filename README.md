@@ -7,7 +7,7 @@ The structure in this repo is as follows:
 
 1. **domain**  
    Entities, valuetypes, aggregates, factories, repositories
-2. **usecase**  
+2. **application**  
    Use cases with application logic
 3. **infra**  
    Different modules for infrastructure and external dependencies. Database, external services++
@@ -15,8 +15,8 @@ The structure in this repo is as follows:
    Entrypoint with REST controllers, DI-setup with Spring, Main application, etc.
 
 **Domain** is the innermost part of the architecture, hence it cannot refer to any other layer.  
-**Usecase** can only refer to **Domain**.  
-**Infrastructure** can refer to **Usecase** and **Domain**.  
+**Application** can only refer to **Domain**.  
+**Infrastructure** can refer to **Application** and **Domain**.  
 **Web** is outer most layer and can reference all other layers.
 
 # Prerequisites
