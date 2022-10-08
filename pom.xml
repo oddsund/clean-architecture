@@ -23,7 +23,7 @@
 
     <modules>
         <module>domain</module>
-        <module>usecase</module>
+        <module>application</module>
         <module>web</module>
         <module>infra/database</module>
         <module>infra/integration</module>
