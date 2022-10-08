@@ -1,4 +1,4 @@
-package no.bekk.power.usecase.customer
+package no.bekk.power.application.customer
 
 import no.bekk.power.domain.customer.CustomerFactory
 import no.bekk.power.domain.customer.CustomerRepository

@@ -2,7 +2,7 @@ package no.bekk.power.config
 
 import no.bekk.power.db.InMemoryCustomerRepository
 import no.bekk.power.domain.customer.CustomerRepository
-import no.bekk.power.usecase.customer.CreateCustomerUseCase
+import no.bekk.power.application.customer.CreateCustomerUseCase
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 

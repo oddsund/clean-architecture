@@ -1,7 +1,7 @@
 package no.bekk.power.controller.customer
 
 import no.bekk.power.controller.customer.dto.CreateCustomerRequest
-import no.bekk.power.usecase.customer.CreateCustomerUseCase
+import no.bekk.power.application.customer.CreateCustomerUseCase
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus
