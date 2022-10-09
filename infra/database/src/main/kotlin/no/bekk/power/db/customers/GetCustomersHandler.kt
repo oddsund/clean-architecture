@@ -5,19 +5,19 @@ import no.bekk.power.domain.customer.Customer
 import no.bekk.power.domain.customer.CustomerRepository
 import no.bekk.power.domain.valuetypes.CustomerId
 
-data class GetCustomer(val customerId: CustomerId) {
+data class GetCustomerQuery(val customerId: CustomerId) {
 
     companion object {
-        fun with(customerId: String): GetCustomer {
-            return GetCustomer(
+        fun with(customerId: String): GetCustomerQuery {
+            return GetCustomerQuery(
                 customerId = CustomerId(customerId)
             )
         }
     }
 }
 
-class GetCustomersHandler(private val customerRepository: CustomerRepository) : QueryHandler<GetCustomer, Customer?> {
-    override fun run(query: GetCustomer): Customer? {
+class GetCustomersHandler(private val customerRepository: CustomerRepository) : QueryHandler<GetCustomerQuery, Customer?> {
+    override fun run(query: GetCustomerQuery): Customer? {
         return customerRepository.findByCustomerId(query.customerId)
     }
 }

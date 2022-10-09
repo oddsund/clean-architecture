@@ -6,11 +6,11 @@ import no.bekk.power.domain.customer.CustomerRepository
 import no.bekk.power.domain.valuetypes.Country
 import no.bekk.power.domain.valuetypes.CustomerId
 
-data class CreateCustomer(val name: String, val customerId: CustomerId, val country: Country) {
+data class CreateCustomerCommand(val name: String, val customerId: CustomerId, val country: Country) {
 
     companion object {
-        fun with(name: String, customerId: String, country: String): CreateCustomer {
-            return CreateCustomer(
+        fun with(name: String, customerId: String, country: String): CreateCustomerCommand {
+            return CreateCustomerCommand(
                 name = name,
                 customerId = CustomerId(customerId),
                 country = Country(country)
@@ -19,9 +19,9 @@ data class CreateCustomer(val name: String, val customerId: CustomerId, val coun
     }
 }
 
-class CreateCustomerHandler(private val customerRepository: CustomerRepository) : CommandHandler<CreateCustomer> {
+class CreateCustomerHandler(private val customerRepository: CustomerRepository) : CommandHandler<CreateCustomerCommand> {
 
-    override fun handle(command: CreateCustomer) {
+    override fun handle(command: CreateCustomerCommand) {
         val (name, customerId, country) = command
 
         if (customerRepository.findByCustomerId(customerId) != null) {
