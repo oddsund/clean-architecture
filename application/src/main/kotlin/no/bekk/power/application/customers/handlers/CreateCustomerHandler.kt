@@ -1,23 +1,9 @@
-package no.bekk.power.application.customers
+package no.bekk.power.application.customers.handlers
 
 import no.bekk.power.application.CommandHandler
+import no.bekk.power.application.customers.commands.CreateCustomerCommand
 import no.bekk.power.domain.customer.CustomerFactory
 import no.bekk.power.domain.customer.CustomerRepository
-import no.bekk.power.domain.valuetypes.Country
-import no.bekk.power.domain.valuetypes.CustomerId
-
-data class CreateCustomerCommand(val name: String, val customerId: CustomerId, val country: Country) {
-
-    companion object {
-        fun with(name: String, customerId: String, country: String): CreateCustomerCommand {
-            return CreateCustomerCommand(
-                name = name,
-                customerId = CustomerId(customerId),
-                country = Country(country)
-            )
-        }
-    }
-}
 
 class CreateCustomerHandler(private val customerRepository: CustomerRepository) : CommandHandler<CreateCustomerCommand> {
 

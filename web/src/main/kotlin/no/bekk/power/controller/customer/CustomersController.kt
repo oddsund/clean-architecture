@@ -2,9 +2,9 @@ package no.bekk.power.controller.customer
 
 import no.bekk.power.application.CommandHandler
 import no.bekk.power.application.QueryHandler
-import no.bekk.power.application.customers.CreateCustomerCommand
+import no.bekk.power.application.customers.commands.CreateCustomerCommand
+import no.bekk.power.application.customers.queries.GetCustomerQuery
 import no.bekk.power.controller.customer.dto.CreateCustomerRequest
-import no.bekk.power.db.customers.GetCustomerQuery
 import no.bekk.power.domain.customer.Customer
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -15,14 +15,14 @@ import java.net.URI
 
 @RestController
 class CustomersController(
-    private val createCustomerCommandCommandHandler: CommandHandler<CreateCustomerCommand>,
+    private val createCustomerHandler: CommandHandler<CreateCustomerCommand>,
     private val getCustomerQuery: QueryHandler<GetCustomerQuery, Customer?>) {
 
     private val log: Logger = LoggerFactory.getLogger(this.javaClass.name)
 
     @GetMapping("/customers/{id}")
     fun getCustomer(@PathVariable("id") customerId: String): ResponseEntity<Any> {
-        val customer = getCustomerQuery.run(GetCustomerQuery.with(customerId))
+        val customer = getCustomerQuery.handle(GetCustomerQuery.with(customerId))
         return if (customer != null) {
             ResponseEntity.ok(customer)
         } else {
@@ -33,7 +33,7 @@ class CustomersController(
     @PostMapping("/customers")
     fun createCustomer(@RequestBody request: CreateCustomerRequest): ResponseEntity<Any> {
         return try {
-            createCustomerCommandCommandHandler.handle(
+            createCustomerHandler.handle(
                 CreateCustomerCommand.with(
                     name = request.name,
                     customerId = request.customerId,

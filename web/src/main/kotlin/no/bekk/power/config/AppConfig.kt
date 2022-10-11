@@ -1,8 +1,8 @@
 package no.bekk.power.config
 
-import no.bekk.power.application.customers.CreateCustomerHandler
+import no.bekk.power.application.customers.handlers.CreateCustomerHandler
+import no.bekk.power.application.customers.handlers.GetCustomersHandler
 import no.bekk.power.db.InMemoryCustomerRepository
-import no.bekk.power.db.customers.GetCustomersHandler
 import no.bekk.power.domain.customer.CustomerRepository
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
