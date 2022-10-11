@@ -3,7 +3,7 @@ package no.bekk.power.domain.customer
 import no.bekk.power.domain.meteringpoint.MeteringPointEntity
 import no.bekk.power.domain.valuetypes.*
 
-class Customer internal constructor(
+class Customer constructor(
     private val customerEntity: CustomerEntity,
     private val meteringPoints: MutableMap<MeteringPointId, MeteringPointEntity> = mutableMapOf()
 ) {
