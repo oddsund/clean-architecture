@@ -5,6 +5,7 @@ import no.bekk.power.application.QueryHandler
 import no.bekk.power.application.customers.commands.CreateCustomerCommand
 import no.bekk.power.application.customers.queries.GetCustomerQuery
 import no.bekk.power.controller.customer.dto.CreateCustomerRequest
+import no.bekk.power.controller.customer.dto.GetCustomerResponse
 import no.bekk.power.domain.customer.Customer
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -24,7 +25,7 @@ class CustomersController(
     fun getCustomer(@PathVariable("id") customerId: String): ResponseEntity<Any> {
         val customer = getCustomerQuery.handle(GetCustomerQuery.with(customerId))
         return if (customer != null) {
-            ResponseEntity.ok(customer)
+            ResponseEntity.ok(GetCustomerResponse.from(customer))
         } else {
             ResponseEntity.notFound().build()
         }
