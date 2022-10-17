@@ -24,9 +24,8 @@
     <modules>
         <module>domain</module>
         <module>application</module>
+        <module>infrastructure</module>
         <module>web</module>
-        <module>infra/database</module>
-        <module>infra/integration</module>
     </modules>
 
     <dependencies>

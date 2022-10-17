@@ -27,13 +27,7 @@
 
         <dependency>
             <groupId>no.bekk</groupId>
-            <artifactId>database</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>no.bekk</groupId>
-            <artifactId>integration</artifactId>
+            <artifactId>infrastructure</artifactId>
             <version>${project.version}</version>
         </dependency>
 
