@@ -8,4 +8,12 @@ class CustomerEntity(
     internal val name: CustomerName,
     internal val customerId: CustomerId,
     internal val country: Country
-)
+) {
+
+    constructor(name: String, customerId: String, country: String) :
+            this(
+                CustomerName(name),
+                CustomerId(customerId),
+                Country(country)
+            )
+}

@@ -12,6 +12,14 @@ class MeteringPointEntity(
     val powerZone: PowerZone
 ) {
 
+    constructor(meteringPointId: String, name: String, street: String, zip: String, powerZone: String) :
+            this(
+                MeteringPointId(meteringPointId),
+                MeteringPointName(name),
+                Address(street, zip),
+                PowerZone.valueOf(powerZone)
+            )
+
     val id: MeteringPointId
         get() = meteringPointId
 }

@@ -5,13 +5,10 @@ import no.bekk.power.domain.valuetypes.*
 
 class Customer private constructor(
     private val customerEntity: CustomerEntity,
-    private val meteringPointsMap: MutableMap<MeteringPointId, MeteringPointEntity> = mutableMapOf()
+    private val meteringPointsMap: MutableMap<MeteringPointId, MeteringPointEntity>
 ) {
-
-    constructor(
-        customerEntity: CustomerEntity,
-        meteringPoints: List<MeteringPointEntity> = listOf()
-    ) : this(customerEntity, meteringPoints.associateBy { m -> m.id }.toMutableMap())
+    constructor(customerEntity: CustomerEntity) : this(customerEntity, mutableMapOf())
+    constructor(name: String, customerId: String, country: String) : this(CustomerEntity(name, customerId, country))
 
     fun findMeteringPoint(meteringPointId: MeteringPointId): MeteringPointEntity? {
         return this.meteringPointsMap[meteringPointId]
