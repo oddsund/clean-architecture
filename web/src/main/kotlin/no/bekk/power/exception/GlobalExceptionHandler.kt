@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.ControllerAdvice
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.context.request.WebRequest
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler
-import java.lang.Exception
 
 @ControllerAdvice
 class GlobalExceptionHandler : ResponseEntityExceptionHandler() {
@@ -20,18 +19,6 @@ class GlobalExceptionHandler : ResponseEntityExceptionHandler() {
         log.warn("Exception occured", e)
         return ResponseEntity
             .status(HttpStatus.BAD_REQUEST)
-            .body(
-                mapOf(
-                    "error" to e.message!!,
-                )
-            )
-    }
-
-    @ExceptionHandler(Exception::class)
-    fun handleGeneralException(e: Exception, request: WebRequest): ResponseEntity<Any> {
-        log.warn("Exception occured", e)
-        return ResponseEntity
-            .status(HttpStatus.INTERNAL_SERVER_ERROR)
             .body(
                 mapOf(
                     "error" to e.message!!,
