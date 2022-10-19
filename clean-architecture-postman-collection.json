@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "1689bc3b-4402-4387-ab2d-ec57b3562ea7",
+		"_postman_id": "887ee433-e25e-4696-aab0-52bf519ff8bd",
 		"name": "CleanArchitecture.Power",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -36,12 +36,12 @@
 			"response": []
 		},
 		{
-			"name": "2. Get meteringpoints for customer",
+			"name": "2. Get Customer",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5233/customers/{customerId}/meteringpoints",
+					"raw": "http://localhost:5233/customers/{{customerId}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -49,15 +49,34 @@
 					"port": "5233",
 					"path": [
 						"customers",
-						"{customerId}",
-						"meteringpoints"
+						"{{customerId}}"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "3. Add meteringpoint",
+			"name": "3. Get Customers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5233/customers/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5233",
+					"path": [
+						"customers",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4. Add meteringpoint",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -88,7 +107,7 @@
 			"response": []
 		},
 		{
-			"name": "4. Delete meteringpoint",
+			"name": "5. Delete meteringpoint",
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -110,12 +129,12 @@
 			"response": []
 		},
 		{
-			"name": "5. Get consumptions for a meteringpoint",
+			"name": "6. Get meteringpoints for customer",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5233/customers/{customerId}meteringpoints/{meteringpointId}/consumptions?from={dateTime}&to={dateTime}",
+					"raw": "http://localhost:5233/customers/{customerId}/meteringpoints",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -123,18 +142,40 @@
 					"port": "5233",
 					"path": [
 						"customers",
-						"{customerId}meteringpoints",
-						"{meteringpointId}",
+						"{customerId}",
+						"meteringpoints"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7. Get consumptions for a meteringpoint",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5233/customers/{{customerId}}/meteringpoints/{{meteringpointId}}/consumptions?from={{fromDate}}&to={{toDate}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5233",
+					"path": [
+						"customers",
+						"{{customerId}}",
+						"meteringpoints",
+						"{{meteringpointId}}",
 						"consumptions"
 					],
 					"query": [
 						{
 							"key": "from",
-							"value": "{dateTime}"
+							"value": "{{fromDate}}"
 						},
 						{
 							"key": "to",
-							"value": "{dateTime}"
+							"value": "{{toDate}}"
 						}
 					]
 				}
