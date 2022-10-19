@@ -48,21 +48,21 @@ open class JdbcCustomerRepository(private val jdbcTemplate: NamedParameterJdbcTe
 
     @Transactional
     override fun save(customer: Customer) {
-        saveCustomer(customer)
-        saveMeteringPoints(customer.id, customer.meteringPoints)
+        saveCustomerEntity(customer)
+        saveMeteringPointEntities(customer.id, customer.meteringPoints)
     }
 
     @Transactional
     override fun update(customer: Customer) {
         val customerFromDb = findByCustomerId(customer.id)
         customerFromDb?.let {
-            updateCustomer(customer)
-            deleteMeteringPoints(it.meteringPoints)
-            saveMeteringPoints(customer.id, customer.meteringPoints)
+            updateCustomerEntity(customer)
+            deleteMeteringPoints(customerFromDb.meteringPoints)
+            saveMeteringPointEntities(customer.id, customer.meteringPoints)
         }
     }
 
-    private fun saveCustomer(customer: Customer) {
+    private fun saveCustomerEntity(customer: Customer) {
         jdbcTemplate.update(
             "INSERT INTO CUSTOMER (CUSTOMER_ID, NAME, COUNTRY) VALUES (:customerId, :name, :country)",
             mutableMapOf(
@@ -73,7 +73,7 @@ open class JdbcCustomerRepository(private val jdbcTemplate: NamedParameterJdbcTe
         )
     }
 
-    private fun updateCustomer(customer: Customer) {
+    private fun updateCustomerEntity(customer: Customer) {
         jdbcTemplate.update(
             "UPDATE CUSTOMER SET name = :name, country = :country  WHERE CUSTOMER_ID = :customerId",
             mutableMapOf(
@@ -84,7 +84,7 @@ open class JdbcCustomerRepository(private val jdbcTemplate: NamedParameterJdbcTe
         )
     }
 
-    private fun saveMeteringPoints(customerId: CustomerId, meteringPoints: List<MeteringPointEntity>) {
+    private fun saveMeteringPointEntities(customerId: CustomerId, meteringPoints: List<MeteringPointEntity>) {
         meteringPoints.forEach { meteringPoint ->
             jdbcTemplate.update(
                 "INSERT INTO METERING_POINT(NAME, METERING_POINT_ID, POWER_ZONE, STREET, ZIP, CUSTOMER_ID) " +
@@ -105,7 +105,7 @@ open class JdbcCustomerRepository(private val jdbcTemplate: NamedParameterJdbcTe
         jdbcTemplate.update(
             "DELETE FROM METERING_POINT WHERE METERING_POINT_ID IN (:ids)",
             mutableMapOf(
-                "ids" to meteringPointIds.map { m -> m.id.value },
+                "ids" to meteringPointIds.map { entity -> entity.id.value },
             )
         )
     }
