@@ -9,8 +9,8 @@ The structure in this repo is as follows:
    Entities, valuetypes, aggregates, factories, repositories
 2. **application**  
    Use cases with application logic
-3. **infra**  
-   Different modules for infrastructure and external dependencies. Database, external services++
+3. **infrastructure**  
+   Database, external services++
 4. **web**  
    Entrypoint with REST controllers, DI-setup with Spring, Main application, etc.
 
@@ -45,6 +45,10 @@ To compile run: `mvn clean package`
 ```
 
 The application should be available on `http://localhost:5233`
+
+# Database console
+
+- http://localhost:5233/h2-console
 
 # Postman collection
 

@@ -7,12 +7,19 @@ import no.bekk.power.domain.valuetypes.PowerZone
 
 class MeteringPointEntity(
     internal val meteringPointId: MeteringPointId,
-    internal val meteringPointName: MeteringPointName,
-    internal val address: Address,
-    internal val powerZone: PowerZone
+    val name: MeteringPointName,
+    val address: Address,
+    val powerZone: PowerZone
 ) {
+
+    constructor(meteringPointId: String, name: String, street: String, zip: String, powerZone: String) :
+            this(
+                MeteringPointId(meteringPointId),
+                MeteringPointName(name),
+                Address(street, zip),
+                PowerZone.valueOf(powerZone)
+            )
 
     val id: MeteringPointId
         get() = meteringPointId
-
 }

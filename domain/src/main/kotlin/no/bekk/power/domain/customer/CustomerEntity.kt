@@ -4,8 +4,16 @@ import no.bekk.power.domain.valuetypes.Country
 import no.bekk.power.domain.valuetypes.CustomerName
 import no.bekk.power.domain.valuetypes.CustomerId
 
-internal class CustomerEntity(
+class CustomerEntity(
     internal val name: CustomerName,
     internal val customerId: CustomerId,
     internal val country: Country
-)
+) {
+
+    constructor(name: String, customerId: String, country: String) :
+            this(
+                CustomerName(name),
+                CustomerId(customerId),
+                Country(country)
+            )
+}

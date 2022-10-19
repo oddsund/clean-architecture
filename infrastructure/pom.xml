@@ -6,19 +6,39 @@
         <artifactId>clean-archictecture</artifactId>
         <groupId>no.bekk</groupId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath>../../pom.xml</relativePath>
+        <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>integration</artifactId>
+    <artifactId>infrastructure</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>no.bekk</groupId>
+            <artifactId>domain</artifactId>
+            <version>${project.version}</version>
+        </dependency>
         <dependency>
             <groupId>no.bekk</groupId>
             <artifactId>application</artifactId>
             <version>${project.version}</version>
         </dependency>
 
+        <!-- Database -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+        </dependency>
+
+        <!-- Http client -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
@@ -31,7 +51,6 @@
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jsr310</artifactId>
         </dependency>
-
     </dependencies>
 
 </project>
