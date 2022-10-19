@@ -1,44 +1,43 @@
 # clean-architecture
-Repo for clean architecture workshop implemented in Kotlin
+Repo for clean architecture workshop.
+Implementasjonen er inspirert av Clean Architecture fra https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
 
-The implementation is based on the Clean Architecture from https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
-
-The structure in this repo is as follows:
+Strukturen i repoet i "src"-mappen er som følger:
 
 1. **domain**  
-   Entities, valuetypes, aggregates, factories, repositories
+   Entiteter, valuetypes, aggregater
 2. **application**  
-   Use cases with application logic
+   Applikasjonslogikk, query og command handlere
 3. **infrastructure**  
-   Database, external services++
+   Database, eksterne tjenester, repsitorier
 4. **web**  
-   Entrypoint with REST controllers, DI-setup with Spring, Main application, etc.
+   Controllere, dependency injection setup ++
 
-**Domain** is the innermost part of the architecture, hence it cannot refer to any other layer.  
-**Application** can only refer to **Domain**.  
-**Infrastructure** can refer to **Application** and **Domain**.  
-**Web** is outer most layer and can reference all other layers.
+**Domain** er den innerste delen av arkitekturen og skal derfor ikke referere til noe annet lag.
+**Application** kan bare referere til **Domain**.  
+**Infrastructure** kan referere til **Application** og **Domain**.  
+**Web** er ytterst og kan dermed kjenne til alle lag.
 
-# Prerequisites
+# Forutsetninger
 
 - Maven
 - JDK 17
 - Editor (IntelliJ or other editor of choice)
 
-# Compiling and running the application
+# Kompilere og starte applikasjonen
 
-To compile run: `mvn clean package`
+For å komilere: `mvn clean package`
 
-## Running the application
+## Kjøre applikasjonen
 
-### From IntelliJ
+### Fra IntelliJ
 
-- Open `CleanArchitectureWorkshopApplication` and run its main method
+- Åpne `CleanArchitectureWorkshopApplication` og kjøre main metoden
 
-### From the terminal
+### Fra terminalen
 
-- Open terminal of choice where Maven is available
-- Navigate to `web` and type `mvn spring-boot:run` followed by enter:
+- Åpne en valgfri terminal hvor Maven er tilgjengelig
+- Naviger til `web` og skriv `mvn spring-boot:run` etterfulgt av enter:
 
 ```
 ~\clean-architecture\web> mvn spring-boot:run
@@ -48,8 +47,22 @@ The application should be available on `http://localhost:5233`
 
 # Database console
 
+Hvis du ønsker å se på innholdet i databasen er den tilgjengelig gjennom følgende web console
+
 - http://localhost:5233/h2-console
+- JDBC URL: `jdbc:h2:file:./clean-architecture-h2-db`
+- Brukernavn: `sa`
+- Passord. `password`
 
 # Postman collection
 
-The `clean-architecture-postman-collection.json` is a postman collection with resources to represent the different use cases in the workshop.
+`clean-architecture-postman-collection.json` er en postman collection med ressurser som representerer de ulike use casene i workshopen.
+
+# Use caser for workshopen
+- (En kunde skal kunne opprettes fra et navn, legal id, legal country.)
+- (En kunde skal kunne hentes vha id)
+- Alle kunder skal kunne hentes ut
+- En kunde skal kunne få lagt til målepunkter (id, navn, addresse, strømsone).
+- En kunde skal kunne si opp et målepunkt og beholde eventuelle andre målepunkter.
+- En kunde skal kunne se detaljer om alle målepunktene sine (strømsone, anleggsaddresse, et egendefinert navn f.eks. «hytta», status, type).
+- En kunde skal kunne se hva forbruket har vært på et gitt målepunkt i et gitt tidsrom.
