@@ -15,7 +15,7 @@ class Customer private constructor(
     }
 
     fun addMeteringPoint(meteringPointEntity: MeteringPointEntity) {
-        this.meteringPointsMap[meteringPointEntity.meteringPointId] = meteringPointEntity
+        this.meteringPointsMap[meteringPointEntity.id] = meteringPointEntity
     }
 
     fun removeMeteringPoint(meteringPointId: MeteringPointId) {

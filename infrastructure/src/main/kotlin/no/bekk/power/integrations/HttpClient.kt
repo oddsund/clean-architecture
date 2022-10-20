@@ -20,7 +20,6 @@ class HttpClient {
             .build())
         .build()
 
-
     inline fun <reified T> meterValues(): T? {
         return client.get()
             .uri("/metervalues")
