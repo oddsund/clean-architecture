@@ -5,14 +5,13 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import no.bekk.power.application.consumption.handlers.GetTotalConsumptionForPeriodHandler
-import no.bekk.power.application.consumption.service.ConsumptionService
-import no.bekk.power.application.consumption.service.MeterValuesService
 import no.bekk.power.application.customers.handlers.CreateCustomerHandler
 import no.bekk.power.application.customers.handlers.GetCustomersHandler
 import no.bekk.power.db.customers.JdbcCustomerRepository
+import no.bekk.power.domain.consumption.ConsumptionRepository
 import no.bekk.power.domain.customer.CustomerRepository
 import no.bekk.power.integrations.HttpClient
-import no.bekk.power.integrations.HttpMeterValuesService
+import no.bekk.power.integrations.HttpConsumptionRepository
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate
@@ -43,21 +42,16 @@ class AppConfig {
     }
 
     @Bean
-    fun meterValuesService(): MeterValuesService {
-        return HttpMeterValuesService(HttpClient())
-    }
-
-    @Bean
-    fun consumptionService(meterValuesService: MeterValuesService): ConsumptionService {
-        return ConsumptionService(meterValuesService)
+    fun consumptionRepository(): ConsumptionRepository {
+        return HttpConsumptionRepository(HttpClient())
     }
 
     @Bean
     fun totalConsumptionHandler(
         customerRepository: CustomerRepository,
-        consumptionService: ConsumptionService
+        consumptionRepository: ConsumptionRepository
     ): GetTotalConsumptionForPeriodHandler {
-        return GetTotalConsumptionForPeriodHandler(customerRepository, consumptionService)
+        return GetTotalConsumptionForPeriodHandler(customerRepository, consumptionRepository)
     }
 
 }
