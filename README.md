@@ -22,11 +22,11 @@ Strukturen i repoet i "src"-mappen er som følger:
 
 - Maven
 - JDK 17
-- Editor (IntelliJ or other editor of choice)
+- Editor (IntelliJ eller en annen valgfri editor)
 
 # Kompilere og starte applikasjonen
 
-For å komilere: `mvn clean package`
+For å kompilere: `mvn clean package`
 
 ## Kjøre applikasjonen
 
@@ -43,7 +43,7 @@ For å komilere: `mvn clean package`
 ~\clean-architecture\web> mvn spring-boot:run
 ```
 
-The application should be available on `http://localhost:5233`
+Applikasjonen skal være tilgjengelig på `http://localhost:5233`
 
 # Database console
 
@@ -57,6 +57,13 @@ Hvis du ønsker å se på innholdet i databasen er den tilgjengelig gjennom føl
 # Postman collection
 
 `clean-architecture-postman-collection.json` er en postman collection med ressurser som representerer de ulike use casene i workshopen.
+
+Postman-samlingen benytter variabler i postman i enkelte av ressursene. Dersom man vil sette verdi på disse variablene så kan man gjøre det ved å:
+- klikk på "Environments" i Postman
+- i Environment-oversikten klikk på "Globals"
+- legg til ny variabel, f.eks `customerId` sett initial value til f.feks 42
+- trykk "Save"
+  Når man nå velger å benytte en ressurs i samlingen som krever `customerId` vil den automatisk hentes fra Globals i Postman.
 
 # Use caser for workshopen
 - (En kunde skal kunne opprettes fra et navn, legal id, legal country.)
