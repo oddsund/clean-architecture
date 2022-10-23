@@ -7,7 +7,11 @@ import no.bekk.power.domain.valuetypes.CustomerName
 class Customer constructor(
     private val customerEntity: CustomerEntity
 ) {
-    constructor(name: String, customerId: String, country: String) : this(CustomerEntity(name, customerId, country))
+    constructor(name: CustomerName, customerId: CustomerId, country: Country) :
+            this(CustomerEntity(name, customerId, country))
+
+    constructor(name: String, customerId: String, country: String) :
+            this(CustomerEntity(name, customerId, country))
 
     val id: CustomerId
         get() = customerEntity.customerId

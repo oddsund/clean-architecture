@@ -2,7 +2,7 @@ package no.bekk.power.application.customers.handlers
 
 import no.bekk.power.application.CommandHandler
 import no.bekk.power.application.customers.commands.CreateCustomerCommand
-import no.bekk.power.domain.customer.CustomerFactory
+import no.bekk.power.domain.customer.Customer
 import no.bekk.power.domain.customer.CustomerRepository
 
 class CreateCustomerHandler(private val customerRepository: CustomerRepository) : CommandHandler<CreateCustomerCommand> {
@@ -14,7 +14,7 @@ class CreateCustomerHandler(private val customerRepository: CustomerRepository) 
             throw IllegalStateException("Customer with id $customerId already exists")
         }
 
-        val customer = CustomerFactory.create(name, customerId, country)
+        val customer = Customer(name, customerId, country)
 
         customerRepository.save(customer)
     }

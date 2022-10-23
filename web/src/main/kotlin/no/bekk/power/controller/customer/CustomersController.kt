@@ -17,13 +17,13 @@ import java.net.URI
 @RestController
 class CustomersController(
     private val createCustomerHandler: CommandHandler<CreateCustomerCommand>,
-    private val getCustomerQuery: QueryHandler<GetCustomerQuery, Customer?>) {
+    private val getCustomerHandler: QueryHandler<GetCustomerQuery, Customer?>) {
 
     private val log: Logger = LoggerFactory.getLogger(this.javaClass.name)
 
     @GetMapping("/customers/{id}")
     fun getCustomer(@PathVariable("id") customerId: String): ResponseEntity<Any> {
-        val customer = getCustomerQuery.handle(GetCustomerQuery.with(customerId))
+        val customer = getCustomerHandler.handle(GetCustomerQuery.with(customerId))
         return if (customer != null) {
             ResponseEntity.ok(GetCustomerResponse.from(customer))
         } else {
