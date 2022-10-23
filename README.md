@@ -73,3 +73,7 @@ Postman-samlingen benytter variabler i postman i enkelte av ressursene. Dersom m
 - En kunde skal kunne si opp et målepunkt og beholde eventuelle andre målepunkter.
 - En kunde skal kunne se detaljer om alle målepunktene sine (strømsone, anleggsaddresse, et egendefinert navn f.eks. «hytta», status, type).
 - En kunde skal kunne se hva forbruket har vært på et gitt målepunkt i et gitt tidsrom.
+
+# Slides
+
+Slides fra workshopen er tilgjengelig i mappen `slides`
