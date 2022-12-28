@@ -18,7 +18,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"Ola Normann\",\r\n  \"customerId\": \"1\",\r\n  \"country\": \"Norge\"\r\n}"
+					"raw": "{\r\n  \"name\": \"Ola Normann\",\r\n  \"customerId\": \"{{customerId}}\",\r\n  \"country\": \"Norge\"\r\n}"
 				},
 				"url": {
 					"raw": "http://localhost:5233/customers/",
@@ -88,10 +88,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"meteringpointid\": \"123456789012345678\",\r\n  \"name\": \"pahytta\",\r\n  \"address\": \"hytteveien 1\",\r\n  \"powerzone\": \"NO1\"\r\n}"
+					"raw": "{\r\n  \"meteringpointId\": \"{{meteringpointId}}\",\r\n  \"name\": \"pahytta\",\r\n  \"address\": \"hytteveien 1\",\r\n  \"zip\": \"17\",\r\n  \"powerZone\": \"NO1\"\r\n}"
 				},
 				"url": {
-					"raw": "http://localhost:5233/customers/{customerId}/meteringpoints",
+					"raw": "http://localhost:5233/customers/{{customerId}}/meteringpoints",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -99,7 +99,7 @@
 					"port": "5233",
 					"path": [
 						"customers",
-						"{customerId}",
+						"{{customerId}}",
 						"meteringpoints"
 					]
 				}
@@ -112,7 +112,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5233/customers/{customerId/meteringpoints/{meteringpointId}",
+					"raw": "http://localhost:5233/customers/{{customerId}}/meteringpoints/{{meteringpointId}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -120,9 +120,9 @@
 					"port": "5233",
 					"path": [
 						"customers",
-						"{customerId",
+						"{{customerId}}",
 						"meteringpoints",
-						"{meteringpointId}"
+						"{{meteringpointId}}"
 					]
 				}
 			},
@@ -134,7 +134,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5233/customers/{customerId}/meteringpoints",
+					"raw": "http://localhost:5233/customers/{{customerId}}/meteringpoints",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -142,7 +142,7 @@
 					"port": "5233",
 					"path": [
 						"customers",
-						"{customerId}",
+						"{{customerId}}",
 						"meteringpoints"
 					]
 				}
@@ -181,6 +181,28 @@
 				}
 			},
 			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "customerId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "meteringpointId",
+			"value": "123456789012345678",
+			"type": "string"
+		},
+		{
+			"key": "fromDate",
+			"value": "2019-1-1",
+			"type": "string"
+		},
+		{
+			"key": "toDate",
+			"value": "2030-12-31",
+			"type": "string"
 		}
 	]
 }
