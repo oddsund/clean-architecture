@@ -54,7 +54,17 @@ Hvis du ønsker å se på innholdet i databasen er den tilgjengelig gjennom føl
 - Brukernavn: `sa`
 - Passord. `password`
 
-# Postman collection
+# Tilgjengelige samlinger for requests
+
+## OpenAPI
+
+TODO
+
+## HTTP Requests/Curl
+
+TODO
+
+## Postman collection
 
 `clean-architecture-postman-collection.json` er en postman collection med ressurser som representerer de ulike use casene i workshopen.
 
@@ -66,14 +76,16 @@ Postman-samlingen benytter variabler i postman i enkelte av ressursene. Dersom m
   Når man nå velger å benytte en ressurs i samlingen som krever `customerId` vil den automatisk hentes fra Globals i Postman.
 
 # Use caser for workshopen
-- (En kunde skal kunne opprettes fra et navn, legal id, legal country.)
-- (En kunde skal kunne hentes vha id)
-- Alle kunder skal kunne hentes ut
-- En kunde skal kunne få lagt til målepunkter (id, navn, addresse, strømsone).
-- En kunde skal kunne si opp et målepunkt og beholde eventuelle andre målepunkter.
-- En kunde skal kunne se detaljer om alle målepunktene sine (strømsone, anleggsaddresse, et egendefinert navn f.eks. «hytta», status, type).
-- En kunde skal kunne se hva forbruket har vært på et gitt målepunkt i et gitt tidsrom.
+
+1. (En kunde skal kunne opprettes fra et navn, legal id, legal country.)
+2. (En kunde skal kunne hentes vha id)
+3. Alle kunder skal kunne hentes ut
+4. En kunde skal kunne få lagt til målepunkter (id, navn, addresse, strømsone).
+5. En kunde skal kunne si opp et målepunkt og beholde eventuelle andre målepunkter.
+6. En kunde skal kunne se detaljer om alle målepunktene sine (strømsone, anleggsaddresse, et egendefinert navn f.eks. «hytta», status, type).
+7. En kunde skal kunne se hva forbruket har vært på et gitt målepunkt i et gitt tidsrom.
 
 # Slides
 
 Slides fra workshopen er tilgjengelig i mappen `slides`
+

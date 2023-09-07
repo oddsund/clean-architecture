@@ -1,0 +1,151 @@
+openapi: 3.0.0
+info:
+  title: CleanArchitecture.Power
+  version: 1.0.0
+servers:
+  - url: http://localhost:5233
+paths:
+  /customers/:
+    post:
+      tags:
+        - default
+      summary: 1. Create customer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Kari Normann
+                customerId: '1'
+                country: Norge
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - default
+      summary: 3. Get Customers
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /customers/{customerId}:
+    get:
+      tags:
+        - default
+      summary: 2. Get Customer
+      parameters:
+        - name: customerId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /customers/{customerId}/meteringpoints:
+    post:
+      tags:
+        - default
+      summary: 4. Add meteringpoint
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                meteringpointid: '123456789012345678'
+                name: pahytta
+                address: hytteveien 1
+                zip: '17'
+                powerZone: NO1
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: customerId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - default
+      summary: 6. Get meteringpoints for customer
+      parameters:
+        - name: customerId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /customers/{customerId/meteringpoints/{meteringpointId}:
+    delete:
+      tags:
+        - default
+      summary: 5. Delete meteringpoint
+      parameters:
+        - name: meteringpointId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /customers/{customerId}/meteringpoints/{meteringpointId}/consumptions:
+    get:
+      tags:
+        - default
+      summary: 7. Get consumptions for a meteringpoint
+      parameters:
+        - name: from
+          in: query
+          schema:
+            type: string
+          example: '20230801'
+        - name: to
+          in: query
+          schema:
+            type: string
+          example: '20230831'
+        - name: customerId
+          in: path
+          schema:
+            type: string
+          required: true
+        - name: meteringpointId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
