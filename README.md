@@ -56,13 +56,35 @@ Hvis du ønsker å se på innholdet i databasen er den tilgjengelig gjennom føl
 
 # Tilgjengelige samlinger for requests
 
-## OpenAPI
-
-TODO
+Det er opprettet flere samlinger med HTTP requests for å gjennomføre workshopen.
+Den letteste veien til mål er ved hjelp av Intellij, som støtter både fila med rene HTTP requests, samt OpenAPI fila.
+Alternativt har vi også en Postman-samling, og curl-kommandoer.
 
 ## HTTP Requests/Curl
 
-TODO
+Kallene i `clean-architecture-intellij-requests.http` kan kjøres direkte fra Intellij.
+Etter at du har åpnet http-fila, husk å velg miljø i vinduet rett over filinnholdet, slik at variablene er ferdigutfylte.
+
+I kommentar over hvert kall ligger tilsvarende curl-kall, om du ønsker å kjøre kallene via kommandolinja.
+CURL-kallene trenger bare at miljøvariabler er definert, for eksempel slik: 
+
+`$ CUSTOMER_ID=1 curl --request GET "http://localhost:5233/customers/$CUSTOMER_ID"`
+
+eller definere variabelen for flere kommandoer i samme shell:
+
+```
+$ export CUSTOMER_ID=1
+$ curl --request GET "http://localhost:5233/customers/$CUSTOMER_ID"
+```
+
+
+## OpenAPI
+
+I fila `clean-architecture-openapi.yaml` finner du en OpenApi-spec basert på Postman-fila.
+Denne kan du importere i en støttet klient, og utføre kallene der.
+Intellij skal være bundlet med en OpenApi plugin, slik at du kan kjøre kallene enkelt ved hjelp av `Try it out` knappen.
+
+Insomnia er et annet eksempel på et verktøy for API-testing.
 
 ## Postman collection
 

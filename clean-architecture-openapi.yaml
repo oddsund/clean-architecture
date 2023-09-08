@@ -102,12 +102,17 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /customers/{customerId/meteringpoints/{meteringpointId}:
+  /customers/{customerId}/meteringpoints/{meteringpointId}:
     delete:
       tags:
         - default
       summary: 5. Delete meteringpoint
       parameters:
+        - name: customerId
+          in: path
+          schema:
+            type: string
+          required: true
         - name: meteringpointId
           in: path
           schema:

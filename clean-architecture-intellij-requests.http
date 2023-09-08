@@ -1,11 +1,13 @@
 ### 1: Create customer
-# curl --location --request POST 'http://localhost:5233/customers/'
-#--header 'Content-Type: application/json'
-#--data-raw '{
+# curl --request POST "http://localhost:5233/customers/" \
+#--header 'Content-Type: application/json' \
+#--data @- << EOF
+# {
 #  "name": "Kari Normann",
 #  "customerId": "$CUSTOMER_ID",
 #  "country": "Norge"
-#}'
+# }
+#EOF
 POST http://localhost:5233/customers/
 Content-Type: application/json
 
@@ -16,22 +18,24 @@ Content-Type: application/json
 }
 
 ### 2: Get customer
-# curl --location --request GET 'http://localhost:5233/customers/$CUSTOMER_ID'
+# curl --request GET "http://localhost:5233/customers/$CUSTOMER_ID"
 GET http://localhost:5233/customers/{{customerId}}
 
 ### 3: Get customers
-# curl --location --request GET 'http://localhost:5233/customers/'
+# curl --request GET "http://localhost:5233/customers/"
 GET http://localhost:5233/customers/
 
 ### 4: Add meteringpoint
-#curl --location -g --request POST 'http://localhost:5233/customers/$CUSTOMER_ID/meteringpoints' \
+#curl --request POST "http://localhost:5233/customers/$CUSTOMER_ID/meteringpoints" \
 #--header 'Content-Type: application/json' \
-#--data-raw '{
+#--data @- << EOF
+# {
 #  "meteringpointid": "$METERING_POINT_ID",
 #  "name": "pahytta",
 #  "address": "hytteveien 1",
 #  "powerzone": "NO1"
-#}'
+# }
+#EOF
 POST /customers/{{customerId}}/meteringpoints HTTP/1.1
 Host: localhost:5233
 Content-Type: application/json
@@ -44,16 +48,16 @@ Content-Type: application/json
 }
 
 ### 5: Get meteringspoints for customer
-#curl --location -g --request GET 'http://localhost:5233/customers/$CUSTOMER_ID/meteringpoints'
+#curl --request GET "http://localhost:5233/customers/$CUSTOMER_ID/meteringpoints"
 GET /customers/{{customerId}}/meteringpoints HTTP/1.1
 Host: localhost:5233
 
 ### 6: Delete meteringpoint
-#curl --location -g --request DELETE 'http://localhost:5233/customers/$CUSTOMER_ID/meteringpoints/$METERING_POINT_ID'
+#curl --request DELETE "http://localhost:5233/customers/$CUSTOMER_ID/meteringpoints/$METERING_POINT_ID"
 DELETE /customers/{{customerId}}/meteringpoints/{{meteringpointId}} HTTP/1.1
 Host: localhost:5233
 
 ### 7: Get consumptions for meteringpoint
-#curl --location -g --request GET 'http://localhost:5233/customers/$CUSTOMER_ID/meteringpoints/$METERING_POINT_ID/consumptions?from=$FROM_DATE&to=$TO_DATE'
+#curl --request GET "http://localhost:5233/customers/$CUSTOMER_ID/meteringpoints/$METERING_POINT_ID/consumptions?from=$FROM_DATE&to=$TO_DATE"
 GET /customers/1/meteringpoints/{{meteringpointId}}/consumptions?from={{fromDate}}&to={{toDate}} HTTP/1.1
 Host: localhost:5233
