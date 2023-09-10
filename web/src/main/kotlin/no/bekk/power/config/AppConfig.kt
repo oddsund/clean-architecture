@@ -1,7 +1,6 @@
 package no.bekk.power.config
 
-import no.bekk.power.application.customers.handlers.CreateCustomerHandler
-import no.bekk.power.application.customers.handlers.GetCustomersHandler
+import no.bekk.power.application.implementations.CustomerServiceImpl
 import no.bekk.power.db.customers.JdbcCustomerRepository
 import no.bekk.power.domain.customer.CustomerRepository
 import org.springframework.context.annotation.Bean
@@ -17,13 +16,8 @@ class AppConfig {
     }
 
     @Bean
-    fun createCustomerHandler(customerRepository: CustomerRepository): CreateCustomerHandler {
-        return CreateCustomerHandler(customerRepository)
-    }
-
-    @Bean
-    fun getCustomerHandler(customerRepository: CustomerRepository): GetCustomersHandler {
-        return GetCustomersHandler(customerRepository)
+    fun customerService(customerRepository: CustomerRepository): no.bekk.power.application.CustomerService {
+        return CustomerServiceImpl(customerRepository)
     }
 
 }

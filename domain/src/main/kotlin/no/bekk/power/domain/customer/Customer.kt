@@ -4,7 +4,7 @@ import no.bekk.power.domain.valuetypes.Country
 import no.bekk.power.domain.valuetypes.CustomerId
 import no.bekk.power.domain.valuetypes.CustomerName
 
-class Customer constructor(
+class Customer(
     private val customerEntity: CustomerEntity
 ) {
     constructor(name: CustomerName, customerId: CustomerId, country: Country) :
