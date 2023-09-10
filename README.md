@@ -1,6 +1,7 @@
 # clean-architecture
 Repo for clean architecture workshop.
 Implementasjonen er inspirert av Clean Architecture fra https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
+Basert på clean architecture workshopen laget av Henrik Wingerei og Espen Ekvang(https://github.com/henriwi/clean-architecture).
 
 Strukturen i repoet i "src"-mappen er som følger:
 
