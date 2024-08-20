@@ -2,6 +2,7 @@ package no.bekk.power.exception
 
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.ControllerAdvice
@@ -37,6 +38,17 @@ class GlobalExceptionHandler : ResponseEntityExceptionHandler() {
                     "error" to e.message!!,
                 )
             )
+    }
+
+    override fun handleExceptionInternal(
+        ex: Exception,
+        body: Any?,
+        headers: HttpHeaders,
+        status: HttpStatus,
+        request: WebRequest
+    ): ResponseEntity<Any> {
+        log.error("Internal error", ex)
+        return super.handleExceptionInternal(ex, body, headers, status, request)
     }
 
 }
