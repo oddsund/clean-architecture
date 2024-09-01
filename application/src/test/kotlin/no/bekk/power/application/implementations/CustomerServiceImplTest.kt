@@ -55,11 +55,14 @@ class CustomerServiceImplTest {
 
     @Test
     fun `getAllCustomers returns entities from repository`() {
+        TODO("Not implemented")
+        /*
         val customers = setOf(Customer("a", "b", "c"))
         every { customerRepository.getAll() } returns customers
 
         val result = target.getAllCustomers()
 
         result shouldBe customers
+        */
     }
 }

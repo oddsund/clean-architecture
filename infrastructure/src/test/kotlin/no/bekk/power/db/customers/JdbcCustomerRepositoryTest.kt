@@ -34,6 +34,8 @@ class JdbcCustomerRepositoryTest {
 
     @Test
     fun `getAll returns all entites from db`() {
+        TODO("Not implemented")
+        /*
         val expected = listOf(
             Customer("abc", "17", "land"),
             Customer("def", "42", "land"))
@@ -46,6 +48,7 @@ class JdbcCustomerRepositoryTest {
         val result = target.getAll()
 
         result shouldBe expected
+        */
     }
 
     @Test

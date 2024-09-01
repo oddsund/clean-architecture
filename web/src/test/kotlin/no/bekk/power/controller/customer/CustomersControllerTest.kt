@@ -4,7 +4,6 @@ import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
 import no.bekk.power.application.CustomerService
-import no.bekk.power.application.MeteringPointService
 import no.bekk.power.controller.customer.dto.CreateCustomerRequest
 import no.bekk.power.controller.customer.dto.GetCustomerResponse
 import no.bekk.power.domain.customer.Customer
@@ -21,8 +20,7 @@ import java.net.URI
 class CustomersControllerTest {
 
     private val customerService: CustomerService = mockk()
-    private val meteringPointService: MeteringPointService = mockk()
-    private val target = CustomersController(customerService, meteringPointService)
+    private val target = CustomersController(customerService)
 
     @Test
     fun `getCustomer with id returns customer`() {
@@ -46,19 +44,6 @@ class CustomersControllerTest {
     }
 
     @Test
-    fun `getCustomers returns all customers from service`(){
-        val customers = setOf(
-            Customer(CustomerName("abc"), CustomerId("1"), Country("SE")),
-            Customer(CustomerName("def"), CustomerId("2"), Country("FI")),
-        )
-        every { customerService.getAllCustomers() } returns customers
-
-        val result = target.getAllCustomers()
-
-        result shouldBe ResponseEntity.ok(customers.map { GetCustomerResponse.from(it) })
-    }
-
-    @Test
     fun `createCustomer with invalid data returns server error`(){
         val request = CreateCustomerRequest("", "", "")
         val errorMessage = "invalid data"
@@ -77,5 +62,21 @@ class CustomersControllerTest {
         val result = target.createCustomer(request)
 
         result shouldBe ResponseEntity.created(URI.create("/customer/b")).build()
+    }
+
+    @Test
+    fun `getCustomers returns all customers from service`(){
+        TODO("Not implemented")
+        /*
+        val customers = setOf(
+            Customer(CustomerName("abc"), CustomerId("1"), Country("SE")),
+            Customer(CustomerName("def"), CustomerId("2"), Country("FI")),
+        )
+        every { customerService.getAllCustomers() } returns customers
+
+        val result = target.getAllCustomers()
+
+        result shouldBe ResponseEntity.ok(customers.map { GetCustomerResponse.from(it) })
+        */
     }
 }
