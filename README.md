@@ -18,6 +18,21 @@ Strukturen i repoet i "src"-mappen er som følger:
 **Application** kan bare referere til **Domain**.  
 **Infrastructure** kan referere til **Application** og **Domain**.  
 **Web** er ytterst og kan dermed kjenne til alle lag.
+Client
+```mermaid
+sequenceDiagram
+    actor C as Client
+    participant Ctrl as CustomersController
+    participant Svc as CustomerService
+    participant Repo as CustomerRepository
+    participant Db as Database
+    C -->> Ctrl: http://localhost:5233/customers/{id}
+    Ctrl ->> Svc: getCustomer(id)
+    Svc ->> Repo: findByCustomerId(id)
+    Repo -->> Db: "SELECT * FROM CUSTOMER C WHERE C.CUSTOMER_ID = :customerId"
+    
+    
+```
 
 # Forutsetninger
 
@@ -33,7 +48,7 @@ For å kompilere: `mvn clean package`
 
 ### Fra IntelliJ
 
-- Åpne `CleanArchitectureWorkshopApplication` og kjøre main metoden
+- Åpne [`CleanArchitectureWorkshopApplication`](./web/src/main/kotlin/no/bekk/power/CleanArchitectureWorkshopApplication.kt) i web-modulen og kjør main metoden
 
 ### Fra terminalen
 
@@ -44,7 +59,7 @@ For å kompilere: `mvn clean package`
 ~\clean-architecture\web> mvn spring-boot:run
 ```
 
-Applikasjonen skal være tilgjengelig på `http://localhost:5233`
+Applikasjonen skal være tilgjengelig på `http://localhost:5233` (definert i [`application.yml`](./web/src/main/resources/application.yml)).
 
 # Database console
 
@@ -63,7 +78,7 @@ Alternativt har vi også en Postman-samling, og curl-kommandoer.
 
 ## HTTP Requests/Curl
 
-Kallene i `clean-architecture-intellij-requests.http` kan kjøres direkte fra Intellij.
+Kallene i [`clean-architecture-intellij-requests.http`](./clean-architecture-intellij-requests.http) kan kjøres direkte fra Intellij.
 Etter at du har åpnet http-fila, husk å velg miljø i vinduet rett over filinnholdet, slik at variablene er ferdigutfylte.
 
 I kommentar over hvert kall ligger tilsvarende curl-kall, om du ønsker å kjøre kallene via kommandolinja.
